@@ -8,11 +8,12 @@ const AUTHED_ID = 'tylermcginnis';
 /**
  * Handles the initial data
  */
-const handleInitialData = () => dispatch =>
+const handleInitialData = () => dispatch => {
   getInitialData().then(({ users, polls }) => {
     dispatch(receiveUsers(users));
     dispatch(receivePolls(polls));
     dispatch(setAuthedUser(AUTHED_ID));
   });
+};
 
 export { handleInitialData };
