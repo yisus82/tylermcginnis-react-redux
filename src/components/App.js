@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import LoadingBar from 'react-redux-loading-bar';
 import { handleInitialData } from '../actions/shared';
 import Dashboard from './Dashboard';
 
@@ -11,7 +12,10 @@ const App = () => {
   React.useEffect(() => dispatch(handleInitialData()), []);
 
   return (
-    <div>{loading ? <h1 className="center">LOADING</h1> : <Dashboard />}</div>
+    <div>
+      <LoadingBar />
+      {loading ? null : <Dashboard />}
+    </div>
   );
 };
 
