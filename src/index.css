@@ -117,6 +117,7 @@ li {
 .dashboard-toggle button {
   border: none;
   background: transparent;
+  cursor: pointer;
   font-size: 22px;
 }
 
