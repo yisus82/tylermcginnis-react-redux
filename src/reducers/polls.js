@@ -1,4 +1,4 @@
-import { RECEIVE_POLLS } from '../actions/polls';
+import { RECEIVE_POLLS, ADD_POLL } from '../actions/polls';
 
 /**
  * Polls reducer
@@ -11,6 +11,11 @@ const polls = (state = {}, action) => {
       return {
         ...state,
         ...action.polls,
+      };
+    case ADD_POLL:
+      return {
+        ...state,
+        [action.poll.id]: action.poll,
       };
     default:
       return state;

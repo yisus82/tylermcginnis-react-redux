@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { handleAddPoll } from '../actions/polls';
 
 const AddPoll = () => {
   const [state, setState] = React.useState({
@@ -8,6 +10,8 @@ const AddPoll = () => {
     c: '',
     d: '',
   });
+
+  const dispatch = useDispatch();
 
   const { question, a, b, c, d } = state;
 
@@ -37,7 +41,7 @@ const AddPoll = () => {
   const handleSubmit = event => {
     event.preventDefault();
     // TODO: Redirect to /
-    console.log('Add poll: ', state);
+    dispatch(handleAddPoll(state));
   };
 
   return (
