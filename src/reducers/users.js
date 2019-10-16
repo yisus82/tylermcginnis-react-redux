@@ -1,5 +1,6 @@
 import { RECEIVE_USERS } from '../actions/users';
 import { ADD_POLL } from '../actions/polls';
+import { ADD_ANSWER } from '../actions/answers';
 
 /**
  * Users reducer
@@ -25,6 +26,18 @@ const users = (state = {}, action) => {
         },
       };
     }
+    case ADD_ANSWER: {
+      const user = state[action.authedUser];
+
+      return {
+        ...state,
+        [action.authedUser]: {
+          ...user,
+          answers: [...user.answers, action.id],
+        },
+      };
+    }
+
     default:
       return state;
   }

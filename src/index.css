@@ -24,6 +24,16 @@ a {
   border: 1px solid #d0d0d0;
   margin: 10px;
   border-radius: 2px;
+  padding: 0;
+}
+
+.option button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 22px;
+  padding: 10px;
+  width: 100%;
 }
 
 .option:hover {
