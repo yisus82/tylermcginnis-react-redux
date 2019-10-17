@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactRouterPropTypes from 'react-router-prop-types';
 import { useDispatch } from 'react-redux';
 import { handleAddPoll } from '../actions/polls';
 
-const AddPoll = () => {
+const AddPoll = ({ history }) => {
   const [state, setState] = React.useState({
     question: '',
     a: '',
@@ -40,7 +41,7 @@ const AddPoll = () => {
    */
   const handleSubmit = event => {
     event.preventDefault();
-    // TODO: Redirect to /
+    history.push('/');
     dispatch(handleAddPoll(state));
   };
 
@@ -110,6 +111,10 @@ const AddPoll = () => {
       </button>
     </form>
   );
+};
+
+AddPoll.propTypes = {
+  history: ReactRouterPropTypes.history.isRequired,
 };
 
 export default AddPoll;

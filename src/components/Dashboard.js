@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   const [show, setShow] = React.useState('unanswered');
@@ -47,7 +48,9 @@ const Dashboard = () => {
       </div>
       <ul className="dashboard-list">
         {list.map(poll => (
-          <li key={poll.id}>{poll.question}</li>
+          <li key={poll.id}>
+            <Link to={`polls/${poll.id}`}>{poll.question}</Link>
+          </li>
         ))}
       </ul>
     </div>
